@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.a11ycheck">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="collective.a11ycheck.interfaces.ICollectiveA11YcheckLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="collective.a11ycheck"
+      type="plone"
+      directory="static"
+      />
+
+</configure>
