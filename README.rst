@@ -28,33 +28,24 @@
 collective.a11ycheck
 ====================
 
-Tell me what your product does
+Reports accessibility issues to your site editors when a page is saved.
 
-Features
---------
+When an editor saves a page (any content) in Plone, a11ycheck runs a subscriber that checks the full HTML of the page, and will display an alert to the editor if the page fails any of the set accessibility checks.
 
-- Can be bullet points
+Initially, a11ycheck only checks against two issues. These are configurable through a control panel for whether or not your site will report these issues to the editors:
 
+* Each page should have exactly 1 <h1>
+* Each image should have alt text
 
-Examples
---------
+Since the entire page's HTML is checked, issues that exist in the templates will also be reported. Works with regular Plone types and Mosaic pages.
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+The control panel includes the following configuration:
 
+* Which issues will be reported (all enabled by default)
+* Which content types will report issues on add (all enabled by default)
+* Which content types will report issues on edit (all enabled by default)
 
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+The subscriber runs against all Dexterity types on add and on edit. If you have content types that open the Mosaic editor as soon as the page is added, you will want to disable the subscriber on add for that type.
 
 
 Installation
@@ -78,14 +69,6 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.a11ycheck/issues
 - Source Code: https://github.com/collective/collective.a11ycheck
-- Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
 
 
 License

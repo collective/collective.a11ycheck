@@ -40,6 +40,16 @@
       name="collective.a11ycheck-hiddenprofiles"
       />
 
+  <subscriber
+        for="plone.dexterity.interfaces.IDexterityContent
+            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.check_html" />
+
+  <subscriber
+        for="plone.dexterity.interfaces.IDexterityContent
+            zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.check_html" />
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>
